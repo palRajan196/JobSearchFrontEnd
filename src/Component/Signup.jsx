@@ -10,7 +10,7 @@ function Signup() {
   const navigate = useNavigate();
   const Registervalue = async () => {
     console.log(name, email, password);
-    let result = await fetch("http://localhost:6005/Register", {
+    let result = await fetch("https://jobsearch-s5jx.onrender.com", {
       method: "POST",
       body: JSON.stringify({ name, email, password }),
       headers: { "Content-Type": "application/json" },
