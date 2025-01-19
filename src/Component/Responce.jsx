@@ -27,7 +27,7 @@ function Response_Back() {
 
   async function Deletedata(id) {
     // let deletetion = await fetch(`http://localhost:6005/submitdlt/${id}`
-    let deletetion = await fetch(`${Backend_URL}submitdlt/${id}`, {
+    let deletetion = await fetch(`${Backend_URL}/submitdlt/${id}`, {
       method: "Delete",
     });
     window.location.reload();

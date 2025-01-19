@@ -17,7 +17,7 @@ function Jobs() {
       method: "GET",
     });
     getjobs = await getjobs.json();
-    console.log(getjobs[0].Title);
+  //  console.log(getjobs[0].Title);
 
     setData(getjobs);
     //   console.log(Data);

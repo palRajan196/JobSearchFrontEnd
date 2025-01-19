@@ -16,8 +16,8 @@ function JobDetails() {
 
   async function findJobs() {
     // let jobsdata = await fetch(`http://localhost:6005/JobsData/${params.id}`
-    let jobsdata = await fetch(`${Backend_URL}JobsData/${params.id}`, {
-      method: "Post",
+    let jobsdata = await fetch(`${Backend_URL}/JobsData/${params.id}`, {
+      method: "GET",
     });
     jobsdata = await jobsdata.json();
     console.log(jobsdata);

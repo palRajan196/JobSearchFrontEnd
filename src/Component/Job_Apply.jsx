@@ -32,7 +32,7 @@ function ApplyJob() {
       formData.append("location", location);
       formData.append("auth", auth);
       // axios.post("http://localhost:6005/applyJob"
-      axios.post(`${Backend_URL}applyJob`, formData)
+      axios.post(`${Backend_URL}/applyJob`, formData)
         .then((res) => {
           setPost(res.data);
           toast.success("Added Succesfully");

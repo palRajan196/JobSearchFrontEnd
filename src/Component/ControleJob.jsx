@@ -13,21 +13,21 @@ function ControleJob() {
 
   const FindJobs = async () => {
     // let controle = await fetch("http://localhost:6005/Getjob"
-    let controle = await fetch(`${Backend_URL}Getjob`, {
-      method: "Post",
+    let controle = await fetch(`${Backend_URL}/Getjob`, {
+      method: "GET",
     });
     controle = await controle.json();
-    console.log(controle);
+  //  console.log(controle);
     setJobs(controle);
   };
 
   async function Deletion(id) {
     // let deletionData = await fetch(`http://localhost:6005/controleDlt/${id}`
-    let deletionData = await fetch(`${Backend_URL}controleDlt/${id}` , {
+    let deletionData = await fetch(`${Backend_URL}/controleDlt/${id}` , {
       method: "DELETE",
     });
     deletionData = await deletionData.json();
-    console.log(deletionData);
+  //  console.log(deletionData);
   }
 
   return (

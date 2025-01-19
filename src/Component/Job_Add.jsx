@@ -23,7 +23,7 @@ function Add_Jobs() {
   async function AddJob() {
     if(Title && Country && Salary && Location){
     // let job = await fetch("http://localhost:6005/AddJob"
-       let job = await fetch(`${Backend_URL}AddJob`, {
+       let job = await fetch(`${Backend_URL}/AddJob`, {
       method: "POST",
       body: JSON.stringify({
         Title,
