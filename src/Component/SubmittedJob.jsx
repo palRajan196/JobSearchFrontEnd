@@ -16,7 +16,7 @@ function SubmittedJob() {
   async function findData() {
     try {
       // let responce = await fetch(`http://localhost:6005/submitteddata/${auth}`
-      let responce = await fetch(`${Backend_URL}submitteddata/${auth}`,
+      let responce = await fetch(`${Backend_URL}/submitteddata/${auth}`,
         {
           method: "Get",
         }
@@ -38,7 +38,7 @@ function SubmittedJob() {
   async function Deletedata(id) {
     console.log("Delete");
     // let deletetion = await fetch(`http://localhost:6005/submitdlt/${id}`
-    let deletetion = await fetch(`${Backend_URL}submitdlt/${id}`, {
+    let deletetion = await fetch(`${Backend_URL}/submitdlt/${id}`, {
       method: "Delete",
     });
     window.location.reload();

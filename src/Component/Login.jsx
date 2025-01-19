@@ -29,7 +29,7 @@ const Backend_URL = import.meta.env.VITE_REACT_APP_BACKEND_URL;
   //  console.log(name, email, password);
     if (name && email && password) {
       // let result = await fetch("http://localhost:6005/Register"
-      let result = await fetch(`${Backend_URL}Register`, {
+      let result = await fetch(`${Backend_URL}/Register`, {
         method: "POST",
         body: JSON.stringify({ name, email, password }),
         headers: { "Content-Type": "application/json" },
@@ -54,7 +54,7 @@ const Backend_URL = import.meta.env.VITE_REACT_APP_BACKEND_URL;
     if (email && password) {
       try {
       //  let result = await fetch("http://localhost:6005/Login",
-        let result = await fetch(`${Backend_URL}Login` , {
+        let result = await fetch(`${Backend_URL}/Login` , {
           method: "POST",
           body: JSON.stringify({ email, password }),
           headers: { "Content-Type": "application/json" },
