@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 
 function Jobs() {
   const Backend_URL = import.meta.env.VITE_REACT_APP_BACKEND_URL; 
+  console.log(`${Backend_URL}`);
   const [Datajob, setData] = useState([]);
 
   useEffect(() => {
