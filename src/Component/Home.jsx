@@ -21,19 +21,19 @@ import { FaApple } from "react-icons/fa";
 function Home() {
   const [Products, setProduct] = useState([]);
 
-  useEffect(() => {
-    Product();
-  }, []);
+  // useEffect(() => {
+  //   Product();
+  // }, []);
 
-  const Product = async () => {
-    let products = await fetch("http://localhost:6005/List", {
-      method: "Post",
-    });
-    products = await products.json();
-    console.log(products[0].brand);
-    setProduct(products);
+  // const Product = async () => {
+  //   let products = await fetch("http://localhost:6005/List", {
+  //     method: "Post",
+  //   });
+  //   products = await products.json();
+  //   console.log(products[0].brand);
+  //   setProduct(products);
     //    console.log(Products);
-  };
+  //};
 
   return (
     <>
