@@ -13,7 +13,7 @@ function Jobs() {
 
   const GetJobs = async () => {
     // var getjobs = await fetch("http://localhost:6005/Getjob",
-    var getjobs = await fetch(`${Backend_URL}Getjob`, {
+    var getjobs = await fetch(`${Backend_URL}/Getjob`, {
       method: "Post",
     });
     getjobs = await getjobs.json();
