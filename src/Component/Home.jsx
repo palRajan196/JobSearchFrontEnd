@@ -17,23 +17,10 @@ import { IoGameController } from "react-icons/io5";
 import { FaMicrosoft } from "react-icons/fa";
 import { SiTesla } from "react-icons/si";
 import { FaApple } from "react-icons/fa";
+import {image} from "../assets/heroS.jpg";
 
 function Home() {
   const [Products, setProduct] = useState([]);
-
-  // useEffect(() => {
-  //   Product();
-  // }, []);
-
-  // const Product = async () => {
-  //   let products = await fetch("http://localhost:6005/List", {
-  //     method: "Post",
-  //   });
-  //   products = await products.json();
-  //   console.log(products[0].brand);
-  //   setProduct(products);
-    //    console.log(Products);
-  //};
 
   return (
     <>
@@ -49,7 +36,7 @@ function Home() {
             </p>
           </div>
           <div id="Home-img">
-            <img src="../public/Image/heroS.jpg" alt="" />
+            <img src={image} alt="Image" />
           </div>
         </div>
         <div id="Home-Head-Bottom">
