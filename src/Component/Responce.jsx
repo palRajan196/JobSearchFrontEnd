@@ -16,7 +16,7 @@ function Response_Back() {
 
   async function findData() {
     // let responce = await fetch(`http://localhost:6005/responce`
-    let responce = await fetch(`${Backend_URL}responce`, {
+    let responce = await fetch(`${Backend_URL}/responce`, {
       method: "Get",
     });
     responce = await responce.json();
