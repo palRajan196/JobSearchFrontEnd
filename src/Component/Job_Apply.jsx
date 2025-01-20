@@ -23,9 +23,9 @@ function ApplyJob() {
     if (name && email && file) {
       setPost(null);
       setLoder(!loder);
-      console.log(name);
+    //  console.log(name);
       const formData = new FormData();
-     formData.append("file", file);
+      formData.append("file", file);
       formData.append("name", name);
       formData.append("email", email);
       formData.append("mobileNo", mobileNo);
@@ -111,7 +111,7 @@ function ApplyJob() {
         </div>
 
         <button onClick={Setvalue}>Submit</button>
-
+        
         {post ? (
           ""
         ) : (
@@ -129,6 +129,7 @@ function ApplyJob() {
             <p>Sending....</p>
           </div>
         )}
+        
       </div>
       <ToastContainer position="top-center" className="toasty-style" />
     </>
