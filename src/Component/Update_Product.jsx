@@ -3,9 +3,12 @@ import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer, toast } from "react-toastify";
+import { RotatingLines } from "react-loader-spinner";
 
 function UpdateProduct() {
-  const Backend_URL = import.meta.env.VITE_REACT_APP_BACKEND_URL; 
+  const Backend_URL = import.meta.env.VITE_REACT_APP_BACKEND_URL;
+  const [Loader, setLoader] = useState(true);
+  const [finddata, setFindData] = useState(false);
 
   const [Title, setTitle] = useState("");
   const [Category, setCotegory] = useState("");
@@ -18,7 +21,7 @@ function UpdateProduct() {
 
   const params = useParams();
   const navigate = useNavigate();
-  console.log(params.id);
+//  console.log(params.id);
   useEffect(() => {
     if (params.id) {
       AutoFill();
@@ -29,11 +32,13 @@ function UpdateProduct() {
   }, []);
   async function AutoFill() {
     // let result = await fetch(`http://localhost:6005/JobsData/${params.id}`
-    let result = await fetch(`${Backend_URL}JobsData/${params.id}`, {
-      method: "Post",
+    let result = await fetch(`${Backend_URL}/JobsData/${params.id}`, {
+      method: "GET",
     });
+    setLoader(false);
+    setFindData(true);
     result = await result.json();
-    console.log(result);
+  //  console.log(result);
     setTitle(result.Title);
     setCotegory(result.Category);
     setCountry(result.Country);
@@ -45,18 +50,18 @@ function UpdateProduct() {
   }
 
   async function UpdateJob() {
-    console.log(
-      Title,
-      Category,
-      Country,
-      City,
-      Location,
-      Description,
-      JobPosted,
-      Salary
-    );
+    // console.log(
+    //   Title,
+    //   Category,
+    //   Country,
+    //   City,
+    //   Location,
+    //   Description,
+    //   JobPosted,
+    //   Salary
+    // );
     // let job = await fetch(`http://localhost:6005/Update/${params.id}`
-    let job = await fetch(`${Backend_URL}Update/${params.id}`, {
+    let job = await fetch(`${Backend_URL}/Update/${params.id}`, {
       method: "PUT",
       body: JSON.stringify({
         Title,
@@ -149,6 +154,23 @@ function UpdateProduct() {
         />
 
         <button onClick={UpdateJob}>Update Job</button>
+        {finddata ? (
+          ""
+        ) : (
+          <div id="Loader">
+            {" "}
+            <RotatingLines
+              visible={Loader}
+              height="120"
+              width="120"
+              strokeColor="blue"
+              ariaLabel="puff-loading"
+              wrapperStyle={{}}
+              wrapperClass=""
+            />
+            <p>Finding ....</p>
+          </div>
+        )}
       </div>
       <ToastContainer position="top-center" className="toasty-style" />
     </>

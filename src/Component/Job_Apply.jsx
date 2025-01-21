@@ -52,11 +52,11 @@ function ApplyJob() {
       }
     }
   }
-  function Lodder() {
-    setLoder(!loder);
-    console.log("Working", loder);
-    return;
-  }
+  // function Lodder() {
+  //   setLoder(!loder);
+  //   console.log("Working", loder);
+  //   return;
+  // }
 
   return (
     <>
@@ -121,7 +121,7 @@ function ApplyJob() {
               visible={true}
               height="120"
               width="120"
-              color="blue"
+               strokeColor="blue"
               ariaLabel="puff-loading"
               wrapperStyle={{}}
               wrapperClass=""

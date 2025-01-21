@@ -74,7 +74,7 @@ function Nav() {
               <li id="Nav-Li">
                 <Link
                 id="Home"
-                className="Nav-Link Active-Nav"
+                className="Nav-Link"
                   to="/"
                   onClick={()=>{ActiveNav("Home")}}
                 >

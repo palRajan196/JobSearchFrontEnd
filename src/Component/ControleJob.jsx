@@ -105,7 +105,7 @@ function ControleJob() {
               visible={Loader}
               height="120"
               width="120"
-              color="blue"
+              strokeColor="blue"
               ariaLabel="puff-loading"
               wrapperStyle={{}}
               wrapperClass=""

@@ -21,13 +21,13 @@ function JobDetails() {
   async function findJobs() {
     try{
        // let jobsdata = await fetch(`http://localhost:6005/JobsData/${params.id}`
-    let jobsdata = await fetch(`${Backend_URL}/JobsData/${params.id}`, {
+      let jobsdata = await fetch(`${Backend_URL}/JobsData/${params.id}`, {
       method: "GET",
     });
        setLoader(false);
        setFindData(true);
        jobsdata = await jobsdata.json();
-       console.log(jobsdata);
+    //   console.log(jobsdata);
        setJobs(jobsdata);
     }
     catch(error){
@@ -89,7 +89,7 @@ function JobDetails() {
                       visible={Loader}
                       height="120"
                       width="120"
-                      color="blue"
+                      strokeColor="blue"
                       ariaLabel="puff-loading"
                       wrapperStyle={{}}
                       wrapperClass=""
