@@ -6,6 +6,10 @@
 .toasty-style {
   font-size: 25px;
 }
+.custom-spinner {
+  width: 100px  !important ;/* Adjust width */
+  height: 100px !important; /* Adjust height */
+}
 
 .Nav {
   position: fixed;
@@ -875,6 +879,11 @@
 /* -------------------------------Responsiv 1110PX----------------- */
 
 @media only screen and (max-width: 1110px) and (min-width: 701px) {
+
+  .custom-spinner {
+    width: 100px  !important ;/* Adjust width */
+    height: 100px !important; /* Adjust height */
+  }
   #Home-Content-img {
     width: 100vw;
     height: 100%;
@@ -1085,6 +1094,11 @@
 /* ------------------Responsiv 700px------------------ */
 
 @media only screen and (max-width: 700px) {
+
+  .custom-spinner {
+    width: 100px  !important ;/* Adjust width */
+    height: 100px !important; /* Adjust height */
+  }
   #Home-Content-img {
     width: 100vw;
     height: 100%;

@@ -87,8 +87,6 @@ function JobDetails() {
                     {" "}
                     <RotatingLines
                       visible={Loader}
-                      height="120"
-                      width="120"
                       strokeColor="blue"
                       ariaLabel="puff-loading"
                       wrapperStyle={{}}
