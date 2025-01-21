@@ -104,7 +104,7 @@ function SubmittedJob() {
       ) : (
         <div className="Notfount">
           <h1>Data is Not Found !</h1>
-          <img src="../public/Image/notfound.png" alt="" />
+          <img src={notfoundImage} alt="" />
         </div>
       )}
     </>

@@ -78,6 +78,8 @@ function Login() {
         setError("");
         navigate("/");
       } catch (error) {
+        setLoader(false);
+        setFindData(true);
         setError("Invailid Input, Please check email or password");
       }
     } else {

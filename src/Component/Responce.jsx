@@ -25,7 +25,7 @@ function Response_Back() {
     setLoader(false);
     setFindData(true);
     responce = await responce.json();
-    //  console.log(responce.length);
+    //  console.log(responce);
 
     setresult(responce);
   }
@@ -59,7 +59,7 @@ function Response_Back() {
                     <span>Mobile :</span> {item.Mobile}
                   </li>
                   <li>
-                    <span>Location :</span> Beesapur Bhitaura Fatehpur
+                    <span>Location :</span> {item.Location}
                   </li>
                 </ul>
               </div>

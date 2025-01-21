@@ -29,10 +29,10 @@ function Home() {
           <div id="Home-Content">
             <h1>Find a job that suits your interests and skills</h1>
             <p>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-              Explicabo veritatis odio debitis eum ipsa deleniti consequatur
-              distinctio modi, ut cumque dolore at. Itaque exercitationem sed
-              necessitatibus officiis nobis distinctio architecto.
+              The future depends on what you do today. Success is not the key to
+              happiness. Happiness is the key to success. If you love what you
+              are doing, you will be successful. Success is the sum of small
+              efforts, repeated day in and day out.
             </p>
           </div>
           <div id="Home-img">
@@ -99,9 +99,10 @@ function Home() {
               </div>
               <h1>Create Account</h1>
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Cupiditate officia deleniti consequatur deserunt sit repellendus
-                tempore qui minima voluptatem magni!{" "}
+                Click on "Sign Up" in the bottom. 
+                Enter Your Name,Email, and Password.
+                Accept the Terms and Conditions. 
+                Click "Signup OR Login".{" "}
               </p>
             </div>
             <div className="Step-Content" id="Content-2">
@@ -110,9 +111,10 @@ function Home() {
               </div>
               <h1>Find a Job/Post a Job</h1>
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Cupiditate officia deleniti consequatur deserunt sit repellendus
-                tempore qui minima voluptatem magni!{" "}
+              Carefully read the job title, job requirements, and 
+              qualifications.
+              Look for specific instructions on how to apply, such as where to send your 
+              application, what documents to include etc .{" "}
               </p>
             </div>
             <div className="Step-Content" id="Content-3">
@@ -121,9 +123,10 @@ function Home() {
               </div>
               <h1>Apply For Job/Recruit Suitable Candidates</h1>
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Cupiditate officia deleniti consequatur deserunt sit repellendus
-                tempore qui minima voluptatem magni!
+              Carefully read the job title, job requirements, and 
+              qualifications.
+              Look for specific instructions on how to apply, such as where to send your 
+              application, what documents to include etc .
               </p>
             </div>
           </div>

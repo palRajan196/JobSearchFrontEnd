@@ -861,6 +861,7 @@
 
 #Loader {
   position: absolute;
+  z-index: 10;
   top: 70px;
   width: 100vw;
   height: 100vh;
