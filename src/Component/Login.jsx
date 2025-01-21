@@ -5,10 +5,14 @@ import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
 import { MdOutlineEmail } from "react-icons/md";
 import { RiLockPasswordLine } from "react-icons/ri";
+import { RotatingLines } from "react-loader-spinner";
+import loginImage from "../assets/Images/login.png";
+import registerImage from "../assets/Images/register.png";
 
 function Login() {
-const Backend_URL = import.meta.env.VITE_REACT_APP_BACKEND_URL;
-
+  const Backend_URL = import.meta.env.VITE_REACT_APP_BACKEND_URL;
+  const [Loader, setLoader] = useState(false);
+  const [findData, setFindData] = useState(true);
   const [name, setname] = useState("");
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
@@ -26,7 +30,9 @@ const Backend_URL = import.meta.env.VITE_REACT_APP_BACKEND_URL;
   }
 
   const Registervalue = async () => {
-  //  console.log(name, email, password);
+    setLoader(true);
+    setFindData(false);
+    //  console.log(name, email, password);
     if (name && email && password) {
       // let result = await fetch("http://localhost:6005/Register"
       let result = await fetch(`${Backend_URL}/Register`, {
@@ -34,6 +40,8 @@ const Backend_URL = import.meta.env.VITE_REACT_APP_BACKEND_URL;
         body: JSON.stringify({ name, email, password }),
         headers: { "Content-Type": "application/json" },
       });
+      setLoader(false);
+      setFindData(true);
       const data = await result.json();
       //  console.log(data);
       if (data) {
@@ -50,17 +58,21 @@ const Backend_URL = import.meta.env.VITE_REACT_APP_BACKEND_URL;
   };
   const Loginvalue = async () => {
     // console.log(`${Backend_URL}Login`);
-     //console.log(email,password);
+    //console.log(email,password);
+    setLoader(true);
+    setFindData(false);
     if (email && password) {
       try {
-      //  let result = await fetch("http://localhost:6005/Login",
-        let result = await fetch(`${Backend_URL}/Login` , {
+        //  let result = await fetch("http://localhost:6005/Login",
+        let result = await fetch(`${Backend_URL}/Login`, {
           method: "POST",
           body: JSON.stringify({ email, password }),
           headers: { "Content-Type": "application/json" },
         });
+        setLoader(false);
+        setFindData(true);
         result = await result.json();
-         console.log("Hi Dunia -> ", result);
+        // console.log("Hi Dunia -> ", result);
         toast.success("Login is successfull");
         localStorage.setItem("user", result._id);
         setError("");
@@ -175,11 +187,27 @@ const Backend_URL = import.meta.env.VITE_REACT_APP_BACKEND_URL;
         </div>
         <div id="Login-img">
           {login ? (
-            <img src="../public/Image/register.png" alt="img" />
+            <img src={registerImage} alt="img" />
           ) : (
-            <img src="../public/Image/login.png" alt="img" />
+            <img src={loginImage} alt="img" />
           )}
         </div>
+        {findData ? (
+          ""
+        ) : (
+          <div id="Loader">
+            {" "}
+            <RotatingLines
+              visible={Loader}
+              height="120"
+              width="120"
+              strokeColor="blue"
+              ariaLabel="puff-loading"
+              wrapperStyle={{}}
+              wrapperClass=""
+            />
+          </div>
+        )}
       </div>
 
       <ToastContainer position="top-center" className="toasty-style" />

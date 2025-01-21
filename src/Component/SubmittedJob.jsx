@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { RotatingLines } from "react-loader-spinner";
-
+import notfoundImage from "../assets/Images/notfound.png";
 function SubmittedJob() {
   const Backend_URL = import.meta.env.VITE_REACT_APP_BACKEND_URL;
   const auth = localStorage.getItem("user");

@@ -17,7 +17,7 @@ import { IoGameController } from "react-icons/io5";
 import { FaMicrosoft } from "react-icons/fa";
 import { SiTesla } from "react-icons/si";
 import { FaApple } from "react-icons/fa";
-//import {Image1} from "../Image/heroS.jpg";
+import Image1 from "../assets/Images/heroS.jpg";
 
 function Home() {
   const [Products, setProduct] = useState([]);
@@ -36,7 +36,7 @@ function Home() {
             </p>
           </div>
           <div id="Home-img">
-            {/* <img src={Image1} alt="Image" /> */}
+            <img src={Image1} alt="Image" />
           </div>
         </div>
         <div id="Home-Head-Bottom">
