@@ -1428,7 +1428,7 @@ margin-left: 90px;
 
 
   /* ----------------------------Submitted------------------------------- */
-  /* .SubmittedJob{
+   .SubmittedJob{
     width: 100vw;
     height: 100%;
     display: flex;
@@ -1503,7 +1503,7 @@ margin-left: 90px;
     border: 2px solid black;
     width: 40%;
     height: 50%;
-  } */
+  } 
 
 
 /* -----------------------Controle-Job------------------------- */
