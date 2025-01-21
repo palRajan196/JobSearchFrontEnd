@@ -59,7 +59,7 @@ function Jobs() {
               visible={Loader}
               height="120"
               width="120"
-              strokeColor="blue"
+              color="blue"
               ariaLabel="puff-loading"
               wrapperStyle={{}}
               wrapperClass=""
