@@ -2,10 +2,13 @@ import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { RotatingLines } from "react-loader-spinner";
 
 function ControleJob() {
   const Backend_URL = import.meta.env.VITE_REACT_APP_BACKEND_URL;
   const [jobs, setJobs] = useState([]);
+  const [Loader, setLoader] = useState(true);
+  const [findData, setFindData] = useState(false);
 
   useEffect(() => {
     FindJobs();
@@ -16,18 +19,20 @@ function ControleJob() {
     let controle = await fetch(`${Backend_URL}/Getjob`, {
       method: "GET",
     });
+    setLoader(false);
+    setFindData(true);
     controle = await controle.json();
-  //  console.log(controle);
+    //  console.log(controle);
     setJobs(controle);
   };
 
   async function Deletion(id) {
     // let deletionData = await fetch(`http://localhost:6005/controleDlt/${id}`
-    let deletionData = await fetch(`${Backend_URL}/controleDlt/${id}` , {
+    let deletionData = await fetch(`${Backend_URL}/controleDlt/${id}`, {
       method: "DELETE",
     });
     deletionData = await deletionData.json();
-  //  console.log(deletionData);
+    //  console.log(deletionData);
   }
 
   return (
@@ -91,6 +96,23 @@ function ControleJob() {
             </div>
           </div>
         ))}
+        {findData ? (
+          ""
+        ) : (
+          <div id="Loader">
+            {" "}
+            <RotatingLines
+              visible={Loader}
+              height="120"
+              width="120"
+              color="blue"
+              ariaLabel="puff-loading"
+              wrapperStyle={{}}
+              wrapperClass=""
+            />
+            <p>Finding Data ....</p>
+          </div>
+        )}
       </div>
     </>
   );

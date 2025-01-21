@@ -2,10 +2,14 @@ import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import {RotatingLines} from "react-loader-spinner";
 
 function JobDetails() {
   const Backend_URL = import.meta.env.VITE_REACT_APP_BACKEND_URL; 
   const auth = localStorage.getItem("user");
+   const [Loader, setLoader] = useState(true);
+   const [findData, setFindData] = useState(false); 
+  
   //      const auth = "Rajan";
   const params = useParams();
   const [Jobs, setJobs] = useState({});
@@ -20,6 +24,8 @@ function JobDetails() {
     let jobsdata = await fetch(`${Backend_URL}/JobsData/${params.id}`, {
       method: "GET",
     });
+       setLoader(false);
+       setFindData(true);
        jobsdata = await jobsdata.json();
        console.log(jobsdata);
        setJobs(jobsdata);
@@ -73,6 +79,24 @@ function JobDetails() {
             )}
           </div>
         </div>
+
+         {findData? (
+                  ""
+                ) : (
+                  <div id="Loader">
+                    {" "}
+                    <RotatingLines
+                      visible={Loader}
+                      height="120"
+                      width="120"
+                      color="blue"
+                      ariaLabel="puff-loading"
+                      wrapperStyle={{}}
+                      wrapperClass=""
+                    />
+                    <p>Finding Data ....</p>
+                  </div>
+                )} 
       </div>
     </>
   );

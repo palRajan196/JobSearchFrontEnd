@@ -1,10 +1,12 @@
 import React from "react";
 import { useState, useEffect } from "react";
-
+import { RotatingLines } from "react-loader-spinner";
 
 function SubmittedJob() {
-  const Backend_URL = import.meta.env.VITE_REACT_APP_BACKEND_URL; 
+  const Backend_URL = import.meta.env.VITE_REACT_APP_BACKEND_URL;
   const auth = localStorage.getItem("user");
+  const [Loader, setLoader] = useState(true);
+  const [finddata, setFindData] = useState(false);
 
   const [data, setData] = useState(true);
   const [result, setresult] = useState([]);
@@ -16,13 +18,13 @@ function SubmittedJob() {
   async function findData() {
     try {
       // let responce = await fetch(`http://localhost:6005/submitteddata/${auth}`
-      let responce = await fetch(`${Backend_URL}/submitteddata/${auth}`,
-        {
-          method: "Get",
-        }
-      );
+      let responce = await fetch(`${Backend_URL}/submitteddata/${auth}`, {
+        method: "Get",
+      });
+      setLoader(false);
+      setFindData(true);
       responce = await responce.json();
-      console.log(responce.length);
+      //  console.log(responce.length);
       setresult(responce);
       if (responce.length == 0) {
         setData("");
@@ -82,6 +84,23 @@ function SubmittedJob() {
               </div>
             </div>
           ))}{" "}
+          {finddata ? (
+            ""
+          ) : (
+            <div id="Loader">
+              {" "}
+              <RotatingLines
+                visible={Loader}
+                height="120"
+                width="120"
+                strokeColor="blue"
+                ariaLabel="puff-loading"
+                wrapperStyle={{}}
+                wrapperClass=""
+              />
+              <p>Finding Submitted Jobs ....</p>
+            </div>
+          )}
         </div>
       ) : (
         <div className="Notfount">
