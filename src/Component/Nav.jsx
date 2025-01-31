@@ -44,6 +44,13 @@ function Nav() {
     document.getElementById("HideNav").style.left = `${5}px`;
   }
 
+
+  //Hide MenuBar when Link is Clicked
+  const navLink = document.querySelectorAll(".Nav-Link");
+  navLink.forEach((link)=>{
+    link.addEventListener("click",Hide)});
+
+  // Active Link Decoration  
   function ActiveNav(Nav){
     const navLink = document.querySelectorAll(".Nav-Link");
     event.preventDefault();

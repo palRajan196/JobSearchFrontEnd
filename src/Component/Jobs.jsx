@@ -56,8 +56,10 @@ function Jobs() {
           <div id="Loader">
             {" "}
             <RotatingLines
+              heigth='40px'
+              width="40px"
               visible={Loader}
-               strokeColor="blue"
+              strokeColor="blue"
               ariaLabel="puff-loading"
               wrapperStyle={{}}
               wrapperClass=""

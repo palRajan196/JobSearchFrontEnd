@@ -86,6 +86,8 @@ function JobDetails() {
                   <div id="Loader">
                     {" "}
                     <RotatingLines
+                      height="40px"
+                      width="40px"
                       visible={Loader}
                       strokeColor="blue"
                       ariaLabel="puff-loading"

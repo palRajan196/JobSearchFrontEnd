@@ -95,7 +95,7 @@ function Home() {
           <div id="Home-Step-Content">
             <div className="Step-Content" id="Content-1">
               <div className="Content-Icon">
-                <IoPersonAdd className="Icons" />
+                <IoPersonAdd className="Icons"/>
               </div>
               <h1>Create Account</h1>
               <p>

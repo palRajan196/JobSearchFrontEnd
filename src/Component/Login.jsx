@@ -200,6 +200,8 @@ function Login() {
           <div id="Loader">
             {" "}
             <RotatingLines
+              width="40px"
+              height="40px"
               visible={Loader}
               strokeColor="blue"
               ariaLabel="puff-loading"

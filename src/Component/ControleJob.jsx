@@ -103,7 +103,8 @@ function ControleJob() {
             {" "}
             <RotatingLines
               visible={Loader}
-          
+               width="40px"
+               height="40px"
               strokeColor="blue"
               ariaLabel="puff-loading"
               wrapperStyle={{}}

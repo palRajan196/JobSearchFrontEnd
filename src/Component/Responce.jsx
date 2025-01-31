@@ -82,7 +82,8 @@ function Response_Back() {
               {" "}
               <RotatingLines
                 visible={Loader}
-               
+                height="40px"
+                width="40px"
                 strokeColor="blue"
                 ariaLabel="puff-loading"
                 wrapperStyle={{}}
