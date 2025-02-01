@@ -24,7 +24,7 @@ function Nav() {
 
   function sidebarHandele() {
     if (window.innerWidth > 1110) {
-      document.getElementById("HideNav").style.left = `${5}px`;
+      document.getElementById("HideNav").style.left = `${0}px`;
     }
   }
 
@@ -37,11 +37,11 @@ function Nav() {
       document.getElementById("HideNav").style.left = `${-110}vw`;
     } else {
       document.getElementById("MenuBar").style.display = "none";
-      document.getElementById("HideNav").style.left = `${5}px`;
+      document.getElementById("HideNav").style.left = `${0}px`;
     }
   }
   function Menu() {
-    document.getElementById("HideNav").style.left = `${5}px`;
+    document.getElementById("HideNav").style.left = `${0}px`;
   }
 
 
@@ -113,7 +113,7 @@ function Nav() {
                 ""
               ) : (
                 <li>
-                  <Link onClick={logout} to="/Login">
+                  <Link className="Nav-Link" onClick={logout} to="/Login">
                     Log out
                   </Link>
                 </li>

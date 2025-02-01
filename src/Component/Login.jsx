@@ -52,6 +52,8 @@ function Login() {
         toast.error("Invailid Input");
       }
     } else {
+      setLoader(false);
+      setFindData(true);
       setEmailChecker("Email is invailid");
       setPassLength("Password should be atleast 4 characters");
     }
@@ -83,6 +85,8 @@ function Login() {
         setError("Invailid Input, Please check email or password");
       }
     } else {
+      setLoader(false);
+      setFindData(true);
       setEmailChecker("Email is invailid");
       setPassLength("Password should be atleast 4 characters");
     }
