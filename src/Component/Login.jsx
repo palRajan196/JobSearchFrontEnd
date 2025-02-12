@@ -32,30 +32,34 @@ function Login() {
   const Registervalue = async () => {
     setLoader(true);
     setFindData(false);
-    //  console.log(name, email, password);
-    if (name && email && password) {
-      // let result = await fetch("http://localhost:6005/Register"
-      let result = await fetch(`${Backend_URL}/Register`, {
-        method: "POST",
-        body: JSON.stringify({ name, email, password }),
-        headers: { "Content-Type": "application/json" },
-      });
-      setLoader(false);
-      setFindData(true);
-      const data = await result.json();
-      //  console.log(data);
-      if (data) {
-        toast.success("Signup is Successfull");
-        localStorage.setItem("user", data._id);
-        navigate("/");
+    try {
+      //  console.log(name, email, password);
+      if (name && email && password) {
+        // let result = await fetch("http://localhost:6005/Register"
+        let result = await fetch(`${Backend_URL}/Register`, {
+          method: "POST",
+          body: JSON.stringify({ name, email, password }),
+          headers: { "Content-Type": "application/json" },
+        });
+        setLoader(false);
+        setFindData(true);
+        const data = await result.json();
+        //  console.log(data);
+        if (data) {
+          toast.success("Signup is Successfull");
+          localStorage.setItem("user", data._id);
+          navigate("/");
+        } else {
+          toast.error("Invailid Input");
+        }
       } else {
-        toast.error("Invailid Input");
+        setLoader(false);
+        setFindData(true);
+        setEmailChecker("Email is invailid");
+        setPassLength("Password should be atleast 4 characters");
       }
-    } else {
-      setLoader(false);
-      setFindData(true);
-      setEmailChecker("Email is invailid");
-      setPassLength("Password should be atleast 4 characters");
+    } catch (error) {
+      console.log("Register Page -> " + error);
     }
   };
   const Loginvalue = async () => {
@@ -83,6 +87,7 @@ function Login() {
         setLoader(false);
         setFindData(true);
         setError("Invailid Input, Please check email or password");
+        console.log("Login Page -> " + error);
       }
     } else {
       setLoader(false);

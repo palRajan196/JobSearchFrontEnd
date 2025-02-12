@@ -5,7 +5,7 @@ import axios from "axios";
 import { CirclesWithBar, Circles, Puff } from "react-loader-spinner";
 
 function ApplyJob() {
-  const Backend_URL = import.meta.env.VITE_REACT_APP_BACKEND_URL; 
+  const Backend_URL = import.meta.env.VITE_REACT_APP_BACKEND_URL;
   let auth = localStorage.getItem("user");
 
   const [name, setName] = useState("");
@@ -20,36 +20,42 @@ function ApplyJob() {
   const [fileChecker, setFileChecker] = useState("");
 
   async function Setvalue() {
-    if (name && email && file) {
-      setPost(null);
-      setLoder(!loder);
-    //  console.log(name);
-      const formData = new FormData();
-      formData.append("file", file);
-      formData.append("name", name);
-      formData.append("email", email);
-      formData.append("mobileNo", mobileNo);
-      formData.append("location", location);
-      formData.append("auth", auth);
-      // axios.post("http://localhost:6005/applyJob"
-      axios.post(`${Backend_URL}/applyJob`, formData)
-        .then((res) => {
-          setPost(res.data);
-          toast.success("Added Succesfully");
-        })
-        .catch((err) => {
-          console.log(err), setPost("Error");
-        });
-    } else {
-      if (!name) {
-        setNameChecker("Enter Name");
+    try {
+      if (name && email && file) {
+        setPost(null);
+        setLoder(!loder);
+
+        //  console.log(name);
+        const formData = new FormData();
+        formData.append("file", file);
+        formData.append("name", name);
+        formData.append("email", email);
+        formData.append("mobileNo", mobileNo);
+        formData.append("location", location);
+        formData.append("auth", auth);
+        // axios.post("http://localhost:6005/applyJob"
+        axios
+          .post(`${Backend_URL}/applyJob`, formData)
+          .then((res) => {
+            setPost(res.data);
+            toast.success("Added Succesfully");
+          })
+          .catch((err) => {
+            console.log(err), setPost("Error");
+          });
+      } else {
+        if (!name) {
+          setNameChecker("Enter Name");
+        }
+        if (!email) {
+          setEmailChecker("Enter Email");
+        }
+        if (!file) {
+          setFileChecker("Choose a File");
+        }
       }
-      if (!email) {
-        setEmailChecker("Enter Email");
-      }
-      if (!file) {
-        setFileChecker("Choose a File");
-      }
+    } catch (error) {
+      console.log("Job Apply -> " + error);
     }
   }
   // function Lodder() {
@@ -111,7 +117,7 @@ function ApplyJob() {
         </div>
 
         <button onClick={Setvalue}>Submit</button>
-        
+
         {post ? (
           ""
         ) : (
@@ -120,8 +126,8 @@ function ApplyJob() {
             <Puff
               visible={true}
               width="40px"
-              height="40px" 
-               strokeColor="blue"
+              height="40px"
+              strokeColor="blue"
               ariaLabel="puff-loading"
               wrapperStyle={{}}
               wrapperClass=""
@@ -129,7 +135,6 @@ function ApplyJob() {
             <p>Sending....</p>
           </div>
         )}
-        
       </div>
       <ToastContainer position="top-center" className="toasty-style" />
     </>

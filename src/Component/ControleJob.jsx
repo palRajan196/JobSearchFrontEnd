@@ -15,24 +15,32 @@ function ControleJob() {
   }, []);
 
   const FindJobs = async () => {
-    // let controle = await fetch("http://localhost:6005/Getjob"
-    let controle = await fetch(`${Backend_URL}/Getjob`, {
-      method: "GET",
-    });
-    setLoader(false);
-    setFindData(true);
-    controle = await controle.json();
-    //  console.log(controle);
-    setJobs(controle);
+    try {
+      // let controle = await fetch("http://localhost:6005/Getjob"
+      let controle = await fetch(`${Backend_URL}/Getjob`, {
+        method: "GET",
+      });
+      setLoader(false);
+      setFindData(true);
+      controle = await controle.json();
+      //  console.log(controle);
+      setJobs(controle);
+    } catch (error) {
+      console.log("Controle Job Page -> ", error);
+    }
   };
 
   async function Deletion(id) {
-    // let deletionData = await fetch(`http://localhost:6005/controleDlt/${id}`
-    let deletionData = await fetch(`${Backend_URL}/controleDlt/${id}`, {
-      method: "DELETE",
-    });
-    deletionData = await deletionData.json();
-    //  console.log(deletionData);
+    try {
+      // let deletionData = await fetch(`http://localhost:6005/controleDlt/${id}`
+      let deletionData = await fetch(`${Backend_URL}/controleDlt/${id}`, {
+        method: "DELETE",
+      });
+      deletionData = await deletionData.json();
+      //  console.log(deletionData);
+    } catch (err) {
+      console.log("Controle Page -> " + err);
+    }
   }
 
   return (
@@ -103,8 +111,8 @@ function ControleJob() {
             {" "}
             <RotatingLines
               visible={Loader}
-               width="40px"
-               height="40px"
+              width="40px"
+              height="40px"
               strokeColor="blue"
               ariaLabel="puff-loading"
               wrapperStyle={{}}

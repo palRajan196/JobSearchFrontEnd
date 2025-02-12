@@ -103,7 +103,7 @@
   margin-bottom: 30px;
 }
 #Login-Head h1 {
-  font-size: 35px;
+  font-size: 30px;
   margin: 0;
 }
 #Login-Head p {
@@ -118,7 +118,7 @@
   align-items: center;
 }
 #Login-body h1 {
-  font-size: 35px;
+  font-size: 25px;
   margin-top: 0px;
 }
 #Login-body p {
@@ -140,7 +140,7 @@
   width: 100%;
   border-radius: 10px;
 }
-.Email-Icon {
+/* .Email-Icon {
   width: 60px;
   height: 52px;
   position: absolute;
@@ -149,7 +149,7 @@
   margin-left: 457px;
   color: white;
   background-color: #007454;
-}
+} */
 #Login-input input {
   width: 400px;
   height: 40px;
@@ -509,7 +509,7 @@
   padding: 30px 50px;
 }
 #Home-Content h1 {
-  font-size: 35px;
+  font-size: 30px;
 }
 #Home-Content p {
   font-size: 20px;
@@ -560,7 +560,7 @@
   transition: 0.5s;
 }
 #Icons-Div:hover{
-  background-color: #e1e1e6;
+  background-color: #d8d8f1;
   cursor: pointer;
 }
 #Icons-Div-Symbol {
@@ -632,11 +632,7 @@
   word-spacing: 4px;
   transition: 0.5s;
 }
-.Step-Content:hover{
-  background-color: #d4d4e0;
-  cursor: pointer;
 
-}
 .Step-Content .Icons{
   border: 2px solid rgb(43, 9, 9);
   margin: 0;
@@ -651,12 +647,24 @@
 #Content-1, #Content-3 {
   background-color: white;
   border-radius: 10px;
-  border: 2px solid rgb(187, 140, 140);
+  border: 5px solid rgb(187, 140, 140);
 }
-
+#Content-1:hover{
+  background-color: #dcdced;
+  cursor: pointer;
+}
+#Content-3:hover{
+  background-color: #dcdced;
+  cursor: pointer;
+}
 #Content-2 {
   background-color: rgb(190, 188, 188);
+  border: 5px solid gray;
   border-radius: 10px;
+}
+#Content-2:hover{
+  background-color: #dcdced;
+  cursor: pointer;
 }
 
 #Category {
@@ -733,6 +741,7 @@
 }
 .Companies-Icons {
   height: 100%;
+  border: 2px solid rgb(97, 94, 94);
   padding: 5px 5px;
   display: flex;
   justify-content: center;
@@ -740,6 +749,11 @@
   flex-direction: column;
   background-color: white;
   border-radius: 10px;
+  transition: 0.5s;
+}
+.Companies-Icons:hover{
+  background-color: rgb(213, 229, 235);
+  cursor: pointer;
 }
 #Companies-Icons-Div {
   width: 100%;
@@ -974,9 +988,7 @@
     left: -110vw;
     background-color: #282838;
     height: 90vh;
-    width: 100vw;
-    
-    border: 1px solid rgb(0, 255, 187);
+    width: 70vw;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1008,7 +1020,7 @@
     display: inline;
     height: 10vh;
     width: 90%;
-    margin-bottom: 50px;
+    margin-bottom: 0px;
     text-align: center;
     color: white;
     font-size: 35px;
@@ -1022,7 +1034,7 @@
     top: 0px;
     display: block;
     width: 100vw;
-    height: 35px;
+    height: 40px;
     color: white;
     background-color: #5352ed;
     transition: all 0.1s;
@@ -1229,9 +1241,6 @@
     border: 2px solid black;
     transition: 0.5s;
   }
-  .Step-Content:hover{
-    transform: scale(1.1);
-  }
   .Step-Content h1 {
     font-size: 23px;
   }
@@ -1254,7 +1263,7 @@
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   }
   .Category-Bottom-Icons {
-    height: 70px;
+    height: 80px;
   }
   
   

@@ -9,8 +9,8 @@ function Nav() {
   let user = auth;
 
   {
-  //  auth === "66756b7441823f08e0b4ed13" ? (user = "Rajan") : " ";
-    auth === import.meta.env.VITE_REACT_APP_USER ? (user = "Rajan") : " ";     
+    //  auth === "66756b7441823f08e0b4ed13" ? (user = "Rajan") : " ";
+    auth === import.meta.env.VITE_REACT_APP_USER ? (user = "Rajan") : " ";
   }
 
   const [Width, setWidth] = useState("");
@@ -19,6 +19,7 @@ function Nav() {
   function logout() {
     localStorage.clear();
     localStorage.setItem("user", "Login");
+    window.location.reload();
     navigate("/Login");
   }
 
@@ -44,17 +45,17 @@ function Nav() {
     document.getElementById("HideNav").style.left = `${0}px`;
   }
 
-
   //Hide MenuBar when Link is Clicked
   const navLink = document.querySelectorAll(".Nav-Link");
-  navLink.forEach((link)=>{
-    link.addEventListener("click",Hide)});
+  navLink.forEach((link) => {
+    link.addEventListener("click", Hide);
+  });
 
-  // Active Link Decoration  
-  function ActiveNav(Nav){
+  // Active Link Decoration
+  function ActiveNav(Nav) {
     const navLink = document.querySelectorAll(".Nav-Link");
     event.preventDefault();
-    for(let link of navLink){
+    for (let link of navLink) {
       link.classList.remove("Active-Nav");
     }
     document.getElementById(Nav).classList.add("Active-Nav");
@@ -80,33 +81,78 @@ function Nav() {
               </div>
               <li id="Nav-Li">
                 <Link
-                id="Home"
-                className="Nav-Link"
+                  id="Home"
+                  className="Nav-Link"
                   to="/"
-                  onClick={()=>{ActiveNav("Home")}}
+                  onClick={() => {
+                    ActiveNav("Home");
+                  }}
                 >
                   Home
                 </Link>
               </li>
               <li>
-                <Link id="Jobs" className="Nav-Link"  to="/Jobs"  onClick={()=>ActiveNav("Jobs")}>Jobs</Link>
+                <Link
+                  id="Jobs"
+                  className="Nav-Link"
+                  to="/Jobs"
+                  onClick={() => ActiveNav("Jobs")}
+                >
+                  Jobs
+                </Link>
               </li>
 
               {user === "Rajan" ? (
                 <>
                   <li>
-                    <Link id="ControleJob"  className="Nav-Link" to={"/ControleJob"}  onClick={()=>{ActiveNav("ControleJob")}}>ControleJob</Link>
+                    <Link
+                      id="ControleJob"
+                      className="Nav-Link"
+                      to={"/ControleJob"}
+                      onClick={() => {
+                        ActiveNav("ControleJob");
+                      }}
+                    >
+                      ControleJob
+                    </Link>
                   </li>
                   <li>
-                    <Link id="Add Job" className="Nav-Link"  to="/Add_Jobs"  onClick={()=>{ActiveNav("Add Job")}}>Add Job</Link>
+                    <Link
+                      id="Add Job"
+                      className="Nav-Link"
+                      to="/Add_Jobs"
+                      onClick={() => {
+                        ActiveNav("Add Job");
+                      }}
+                    >
+                      Add Job
+                    </Link>
                   </li>
                   <li>
-                    <Link id="Responce"  className="Nav-Link" to="/Responce" onClick={()=>{ActiveNav("Responce")}}>Responce</Link>
+                    <Link
+                      id="Responce"
+                      className="Nav-Link"
+                      to="/Responce"
+                      onClick={() => {
+                        ActiveNav("Responce");
+                      }}
+                    >
+                      Responce
+                    </Link>
                   </li>{" "}
                 </>
               ) : (
                 <li>
-                  <Link id="SubmittedJob" className="Nav-Link"  to="/SubmittedJob"  onClick={()=>{ActiveNav("SubmittedJob")}}>SubmittedJob</Link>
+                  <Link
+                    id="SubmittedJob"
+                    className="Nav-Link"
+                    to="/SubmittedJob"
+                    onClick={() => {
+                      ActiveNav("SubmittedJob");
+                    }}
+                  >
+                    SubmittedJob
+                  </Link>
                 </li>
               )}
               {auth == "Login" ? (

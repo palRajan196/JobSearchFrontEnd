@@ -19,52 +19,54 @@ function Add_Jobs() {
   const [LocationChecker, setLocationChecker] = useState("");
   const [SalaryChecker, setSalaryChecker] = useState("");
 
-
   async function AddJob() {
-    if(Title && Country && Salary && Location){
-    // let job = await fetch("http://localhost:6005/AddJob"
-       let job = await fetch(`${Backend_URL}/AddJob`, {
-      method: "POST",
-      body: JSON.stringify({
-        Title,
-        Category,
-        Country,
-        City,
-        Location,
-        Description,
-        JobPosted,
-        Salary,
-      }),
-      headers: { "Content-Type": "application/json" },
-    });
-    job = await job.json();
-    if (job) {
-      toast.success("Successfully Added Job");
+    try {
+      if (Title && Country && Salary && Location) {
+        // let job = await fetch("http://localhost:6005/AddJob"
+        let job = await fetch(`${Backend_URL}/AddJob`, {
+          method: "POST",
+          body: JSON.stringify({
+            Title,
+            Category,
+            Country,
+            City,
+            Location,
+            Description,
+            JobPosted,
+            Salary,
+          }),
+          headers: { "Content-Type": "application/json" },
+        });
+        job = await job.json();
+        if (job) {
+          toast.success("Successfully Added Job");
 
-      setTitle("");
-      setCotegory("");
-      setCountry("");
-      setCity("");
-      setLocation("");
-      setDescription("");
-      setJobPosted("");
-      setSalary("");
+          setTitle("");
+          setCotegory("");
+          setCountry("");
+          setCity("");
+          setLocation("");
+          setDescription("");
+          setJobPosted("");
+          setSalary("");
+        }
+      } else {
+        if (!Title) {
+          setTitleChecker("Please Fill Title Required Field");
+        }
+        if (!Country) {
+          setCountryChecker("Please Fill Country Required Field");
+        }
+        if (!Salary) {
+          setSalaryChecker("Please Fill Salary Required Field");
+        }
+        if (!Location) {
+          setLocationChecker("Please Fill Location Required Field");
+        }
+      }
+    } catch (error) {
+      console.log("Add Job Page -> " + error);
     }
-  }
-  else{
-    if(!Title){
-       setTitleChecker("Please Fill Title Required Field");
-    }
-    if(!Country){
-       setCountryChecker("Please Fill Country Required Field");
-    }
-    if(!Salary){
-       setSalaryChecker("Please Fill Salary Required Field");
-    }
-    if(!Location){
-       setLocationChecker("Please Fill Location Required Field");
-    }
-  }
   }
 
   return (

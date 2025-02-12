@@ -2,14 +2,14 @@ import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import {RotatingLines} from "react-loader-spinner";
+import { RotatingLines } from "react-loader-spinner";
 
 function JobDetails() {
-  const Backend_URL = import.meta.env.VITE_REACT_APP_BACKEND_URL; 
+  const Backend_URL = import.meta.env.VITE_REACT_APP_BACKEND_URL;
   const auth = localStorage.getItem("user");
-   const [Loader, setLoader] = useState(true);
-   const [findData, setFindData] = useState(false); 
-  
+  const [Loader, setLoader] = useState(true);
+  const [findData, setFindData] = useState(false);
+
   //      const auth = "Rajan";
   const params = useParams();
   const [Jobs, setJobs] = useState({});
@@ -19,21 +19,19 @@ function JobDetails() {
   }, []);
 
   async function findJobs() {
-    try{
-       // let jobsdata = await fetch(`http://localhost:6005/JobsData/${params.id}`
+    try {
+      // let jobsdata = await fetch(`http://localhost:6005/JobsData/${params.id}`
       let jobsdata = await fetch(`${Backend_URL}/JobsData/${params.id}`, {
-      method: "GET",
-    });
-       setLoader(false);
-       setFindData(true);
-       jobsdata = await jobsdata.json();
-    //   console.log(jobsdata);
-       setJobs(jobsdata);
+        method: "GET",
+      });
+      setLoader(false);
+      setFindData(true);
+      jobsdata = await jobsdata.json();
+      //   console.log(jobsdata);
+      setJobs(jobsdata);
+    } catch (error) {
+      console.log("Job Details Page " + error);
     }
-    catch(error){
-       console.log(error);
-    }
-    
   }
   return (
     <>
@@ -70,7 +68,7 @@ function JobDetails() {
             <span>Salary : </span> {Jobs.Salary}
           </div>
           <div id="Jobdetail-btn">
-            {auth === import.meta.env.VITE_REACT_APP_USER  ? (
+            {auth === import.meta.env.VITE_REACT_APP_USER ? (
               " "
             ) : (
               <button id="job_Detail_btn">
@@ -80,23 +78,23 @@ function JobDetails() {
           </div>
         </div>
 
-         {findData? (
-                  ""
-                ) : (
-                  <div id="Loader">
-                    {" "}
-                    <RotatingLines
-                      height="40px"
-                      width="40px"
-                      visible={Loader}
-                      strokeColor="blue"
-                      ariaLabel="puff-loading"
-                      wrapperStyle={{}}
-                      wrapperClass=""
-                    />
-                    <p>Finding Data ....</p>
-                  </div>
-                )} 
+        {findData ? (
+          ""
+        ) : (
+          <div id="Loader">
+            {" "}
+            <RotatingLines
+              height="40px"
+              width="40px"
+              visible={Loader}
+              strokeColor="blue"
+              ariaLabel="puff-loading"
+              wrapperStyle={{}}
+              wrapperClass=""
+            />
+            <p>Finding Data ....</p>
+          </div>
+        )}
       </div>
     </>
   );
