@@ -1,4 +1,5 @@
 import React from "react";
+import { useEffects } from "react";
 import { Navigate, Outlet } from "react-router-dom";
 
 function PrivateComponent() {
