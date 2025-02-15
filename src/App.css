@@ -1300,6 +1300,7 @@
   #HideNav {
     top: 0px;
     position: absolute;
+    z-index: 20;
     left: -110vw;
     background-color: #282838;
     height: 70vh;
