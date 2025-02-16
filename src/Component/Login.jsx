@@ -33,7 +33,7 @@ function Login() {
     setLoader(true);
     setFindData(false);
     try {
-      //  console.log(name, email, password);
+        console.log(name, email, password);
       if (name && email && password) {
         // let result = await fetch("http://localhost:6005/Register"
         let result = await fetch(`${Backend_URL}/Register`, {
@@ -59,6 +59,9 @@ function Login() {
         setPassLength("Password should be atleast 4 characters");
       }
     } catch (error) {
+      setLoader(false);
+      setFindData(true);
+      setEmailChecker("This Email is Already Present");
       console.log("Register Page -> " + error);
     }
   };

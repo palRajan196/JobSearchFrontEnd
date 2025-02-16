@@ -8,9 +8,8 @@ function PrivateComponent() {
  let auth = localStorage.getItem("user");
     
     if(auth==null || auth=="Login"){
-      console.log("auth"+auth);
       localStorage.setItem("user","Login");
-      navigate("/Login");
+    //  navigate("/Login");
     }
 
   auth = localStorage.getItem("user");

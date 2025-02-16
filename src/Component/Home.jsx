@@ -177,7 +177,7 @@ function Home() {
                 </div>
                 <div id="Icons-Div-Content">
                   <p>MERN STACK Development</p>
-                  <p id="value">1000+ Open Positions</p>
+                  <p id="value">100 Open Positions</p>
                 </div>
               </div>
             </div>
