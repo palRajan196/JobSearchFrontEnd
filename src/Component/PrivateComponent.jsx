@@ -5,9 +5,9 @@ import { Navigate, Outlet } from "react-router-dom";
 
 function PrivateComponent() {
   const navigate = useNavigate();
- let auth;
-    auth = localStorage.getItem("user");
-    if(auth==""){
+ let auth = localStorage.getItem("user");
+    
+    if(auth==null || auth=="Login"){
       console.log("auth"+auth);
       localStorage.setItem("user","Login");
       navigate("/Login");
